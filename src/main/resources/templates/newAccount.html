@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:form="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Pluralsight Training: Config Client</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"></link>
+</head>
+<body>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <h1>PS Bank:- Create New Account</h1>
+        <h2>Create New Account</h2>
+        <form name="accountForm" action="saveAccount" method="post">
+            <table>
+                <tr>
+                    <td>Account #: </td>
+                    <td><input type="text" name="accountNo" /> </td>
+                </tr>
+                <tr>
+                    <td>Account Holder Name: </td>
+                    <td><input type="text" name="accountHolderName" /> </td>
+                </tr>
+                <tr>
+                    <label>Account Type: </label>
+                    <select id = "accountType" name="accountType">
+                        <option value = "SAVINGS"> SAVINGS</option>
+                        <option value = "CURRENT"> CURRENT</option>
+                    </select>
+                </tr>
+                <tr>
+                    <td>Date of Birth: </td>
+                    <td><input type="text" name="dateofBirth" /> </td>
+                </tr>
+                <tr>
+                    <td>Account Balance: </td>
+                    <td><input type="text" name="balance" /> </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="submit" value="Create Account" name="btnSubmit" />
+                </tr>
+            </table>
+
+        </form>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+</body>
+</html>

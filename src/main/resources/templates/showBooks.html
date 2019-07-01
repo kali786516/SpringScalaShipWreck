@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Pluralsight Training: Show Account Details</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"></link>
+</head>
+<body>
+<div class="col-md-2"></div>
+<div class="col-md-8">
+    <h1>Welcome to Maine Library Web Application:- Books List</h1>
+    <h2>Bank Account Details </h2>
+    <p id="bookName"></p>
+</div>
+<script th:inline="javascript">
+    var bookName          = /*[[${bookslist}]]*/ 'bookslist';
+
+    document.getElementById("bookName").innerHTML            = "Book Name is :- " + bookName;
+
+</script>
+
+<!--
+<p id="accountNo"></p>
+<p id="accountHolderName"></p>
+<p id="balance"></p>
+
+</div>
+
+   <script>
+        function getParams(){
+            var idx = document.URL.indexOf('?');
+            var params = new Array();
+            if (idx != -1) {
+                var pairs = document.URL.substring(idx+1, document.URL.length).split('&');
+                for (var i=0; i<pairs.length; i++){
+                    nameVal = pairs[i].split('=');
+                    params[nameVal[0]] = nameVal[1];
+                }
+            }
+            return params;
+        }
+        params = getParams();
+        accountNo = unescape(params["accountNo"]);
+        accountHolderName = unescape(params["accountHolderName"]);
+        balance = unescape(params["balance"]);
+
+        https://stackoverflow.com/questions/17502071/transfer-data-from-one-html-file-to-another
+        https://www.w3schools.com/js/tryit.asp?filename=tryjs_function_closures1
+
+        params1 = getParams();
+        document.getElementById("accountNo").innerHTML = "Account No is :- " + unescape(params1["accountNo"]);
+        document.getElementById("accountHolderName").innerHTML = "Account Holder Name is :- " + unescape(params1["accountHolderName"]);
+        document.getElementById("balance").innerHTML = "Balance is :- " + unescape(params1["balance"]);
+
+    </script>
+    -->
+</body>
+</html>

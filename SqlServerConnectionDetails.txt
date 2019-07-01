@@ -1,0 +1,25 @@
+sudo docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Password1234' \
+   -p 1431:1433 --name sql3 \
+   -d mcr.microsoft.com/mssql/server:2017-latest
+
+   sudo docker ps -a
+
+   SELECT @@SERVERNAME,
+    SERVERPROPERTY('ComputerNamePhysicalNetBIOS'),
+    SERVERPROPERTY('MachineName'),
+    SERVERPROPERTY('ServerName')
+
+    sudo docker exec -it sql3 /opt/mssql-tools/bin/sqlcmd \
+   -S localhost -U SA -P 'Password1234' \
+   -Q 'ALTER LOGIN SA WITH PASSWORD="Password1234"'
+
+   sudo docker exec -it sql3 "bash"
+
+   /opt/mssql-tools/bin/sqlcmd -S 192.168.1.12,1431 -U SA -P 'Password1234'
+
+   CREATE DATABASE TestDB
+
+   SELECT Name from sys.Databases
+
+sudo docker exec -it sql1 "bash"
+/opt/mssql-tools/bin/sqlcmd -S 192.168.1.8,1431 -U SA -P 'Password1234@@'
