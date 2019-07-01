@@ -1,12 +1,6 @@
 package SpringScala.model
 
-import javax.persistence.Entity
-
-import javax.persistence.GeneratedValue
-
-import javax.persistence.GenerationType
-
-import javax.persistence.Id
+import javax.persistence.{Entity, GeneratedValue, GenerationType, Id, Table}
 
 //remove if not needed
 import scala.collection.JavaConversions._

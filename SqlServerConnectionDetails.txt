@@ -4,22 +4,34 @@ sudo docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Password1234' \
 
    sudo docker ps -a
 
-   SELECT @@SERVERNAME,
-    SERVERPROPERTY('ComputerNamePhysicalNetBIOS'),
-    SERVERPROPERTY('MachineName'),
-    SERVERPROPERTY('ServerName')
+   SELECT @@SERVERNAME,SERVERPROPERTY('ComputerNamePhysicalNetBIOS'),SERVERPROPERTY('MachineName'),SERVERPROPERTY('ServerName')
 
     sudo docker exec -it sql3 /opt/mssql-tools/bin/sqlcmd \
-   -S localhost -U SA -P 'Password1234' \
-   -Q 'ALTER LOGIN SA WITH PASSWORD="Password1234"'
+   -S localhost -U testlogin -P 'Password1234' \
+   -Q 'ALTER LOGIN testlogin WITH PASSWORD="Password1234"'
 
    sudo docker exec -it sql3 "bash"
 
-   /opt/mssql-tools/bin/sqlcmd -S 192.168.1.12,1431 -U SA -P 'Password1234'
+    /opt/mssql-tools/bin/sqlcmd -S 192.168.1.4,1431 -U sa -P 'Password1234'
+
+   /opt/mssql-tools/bin/sqlcmd -S 192.168.1.4,1431 -U testlogin -P 'Password1234'
 
    CREATE DATABASE TestDB
 
    SELECT Name from sys.Databases
+
+   CREATE LOGIN testlogin WITH PASSWORD = 'Password1234';
+
+   EXEC master..sp_addsrvrolemember @loginame = N'testlogin', @rolename = N'dbcreator'
+   GO
+
+Cannot alter the server role 'dbcreator', because it does not exist or you do not have permission.
+
+USE master
+IF EXISTS(select * from sys.databases where name='testdb')
+DROP DATABASE testdb
+CREATE DATABASE  testdb;
+USE testdb;
 
 sudo docker exec -it sql1 "bash"
 /opt/mssql-tools/bin/sqlcmd -S 192.168.1.8,1431 -U SA -P 'Password1234@@'

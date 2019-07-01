@@ -1,8 +1,14 @@
-drop table if exists test_db.book;
-
-use test_db;CREATE TABLE test_db.book (pk_id INT PRIMARY KEY IDENTITY (1, 1),book_id INT,book_name VARCHAR (50) NOT NULL);
-
-insert into test_db.book(book_name) values (1,"XNXX");
-insert into test_db.book(book_name) values (2,"pornhub");
-insert into test_db.book(book_name) values (3,"youporn");
-insert into test_db.book(book_name) values (4,"XHAMSTER");
+CREATE TABLE SHIPWRECK(
+	ID INT IDENTITY(1,1),
+	NAME VARCHAR(255),
+	DESCRIPTION VARCHAR(2000),
+	CONDITION VARCHAR(255),
+	DEPTH INT,
+	LATITUDE DOUBLE,
+	LONGITUDE DOUBLE,
+	YEAR_DISCOVERED INT
+);
+INSERT INTO SHIPWRECK
+(NAME, DESCRIPTION, CONDITION, DEPTH, LATITUDE, LONGITUDE, YEAR_DISCOVERED)
+VALUES
+('Admin User1', 'admin@gmail.com', 'admin', 123,1234,12234,134242);
